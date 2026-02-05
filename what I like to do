@@ -1,0 +1,64 @@
+// My favorite things
+const favorites = [
+  {
+    emoji: '📚',
+    title: 'Reading',
+    description: 'I love diving into a good book.',
+    details: 'My favorite genres are science fiction and mystery novels. I try to read at least one book per month.'
+  },
+  {
+    emoji: '🎮',
+    title: 'Gaming',
+    description: 'Video games are my passion.',
+    details: 'I enjoy RPGs and strategy games. Currently playing some amazing indie titles.'
+  },
+  {
+    emoji: '🍕',
+    title: 'Pizza',
+    description: 'Pizza is the ultimate comfort food.',
+    details: 'I love trying new pizza places and experimenting with different toppings. Pepperoni classic is always great!'
+  },
+  {
+    emoji: '🎵',
+    title: 'Music',
+    description: 'Music makes life better.',
+    details: 'I listen to a mix of genres - from rock to lo-fi hip-hop. Always looking for new artists.'
+  },
+  {
+    emoji: '🏃',
+    title: 'Running',
+    description: 'Staying active keeps me energized.',
+    details: 'I try to run 3-4 times a week. Love exploring new trails and parks in my area.'
+  },
+  {
+    emoji: '💻',
+    title: 'Coding',
+    description: 'Building things with code is exciting.',
+    details: 'I love learning new programming languages and frameworks. Web development is my focus.'
+  }
+];
+
+// Render favorites to the page
+function renderFavorites() {
+  const likesSection = document.getElementById('likes');
+  
+  favorites.forEach((favorite, index) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <span class="emoji">${favorite.emoji}</span>
+      <h2>${favorite.title}</h2>
+      <p>${favorite.description}</p>
+      <div class="details">${favorite.details}</div>
+    `;
+    
+    card.addEventListener('click', () => {
+      card.classList.toggle('active');
+    });
+    
+    likesSection.appendChild(card);
+  });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', renderFavorites);
